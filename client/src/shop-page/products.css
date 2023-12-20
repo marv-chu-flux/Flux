@@ -23,6 +23,10 @@
   transition: ease 0.7s;
 }
 
+Link {
+  color: black;
+}
+
 .product-container li:hover {
   scale: 1.1;
 }

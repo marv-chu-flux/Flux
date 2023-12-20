@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../utils/utils';
 import './products.css';
+import { Link } from 'react-router-dom';
 
 export default function Products() {
   const [items, setItems] = useState([]);
-
-  function itemClick(id) {
-    console.log(`https://fakestoreapi.com/products/${id}`);
-  }
 
   useEffect(() => {
     async function fetchDataGet() {
@@ -18,10 +15,15 @@ export default function Products() {
 
       const arrItems = response.map((item) => {
         return (
-          <li onClick={() => itemClick(item.id)} key={item.id}>
-            <h4>{item.title}</h4>
-            <img alt="item" src={item.image} />
-            <p>${item.price}</p>
+          <li key={item.id}>
+            <Link
+              to={`/shop/${item.id}`}
+              style={{ textDecoration: 'none', color: 'black' }}
+            >
+              <h4>{item.title}</h4>
+              <img alt="item" src={item.image} />
+              <p>${item.price}</p>
+            </Link>
           </li>
         );
       });
