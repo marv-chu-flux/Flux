@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../utils/utils';
+import './products.css';
 
 export default function Products() {
   const [items, setItems] = useState([]);
+
+  function itemClick(id) {
+    console.log(`https://fakestoreapi.com/products/${id}`);
+  }
 
   useEffect(() => {
     async function fetchDataGet() {
@@ -13,10 +18,10 @@ export default function Products() {
 
       const arrItems = response.map((item) => {
         return (
-          <li key={item.id}>
-            <h3>{item.title}</h3>
+          <li onClick={() => itemClick(item.id)} key={item.id}>
+            <h4>{item.title}</h4>
             <img alt="item" src={item.image} />
-            <p>{item.price}</p>
+            <p>${item.price}</p>
           </li>
         );
       });
@@ -26,5 +31,5 @@ export default function Products() {
     fetchDataGet();
   }, []);
 
-  return <ul>{items}</ul>;
+  return <ul className="product-container">{items}</ul>;
 }
