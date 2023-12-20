@@ -1,23 +1,19 @@
 // import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from './images/logo.png';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import ItemCard from './components/ItemCard/Card';
+
 
 function App() {
   return (
     <>
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <a>Shop</a>
-            </li>
-            <li>
-              <img id="logo" src={logo} alt="Flux Logo" />
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <section></section>
+      <Header/>
+      {/* <ItemCard/> */}
+      <Footer/>
     </>
   );
 }
