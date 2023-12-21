@@ -1,0 +1,29 @@
+.bg-body-tertiary {
+    background-color: white !important; 
+    height: 60px;
+  }
+
+  .navbar-nav {
+    margin-right: 10px; 
+  }
+  
+  .d-flex {
+    margin-left: 10px; 
+  }
+
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar-brand img {
+    max-width: 100px; 
+    height: 45px; 
+  }
+
+.navbar-nav .nav-link,
+.navbar-brand {
+  color: rgb(26, 26, 26) !important; 
+  font-weight: 500;
+}
