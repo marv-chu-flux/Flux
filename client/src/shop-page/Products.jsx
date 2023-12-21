@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../utils/utils';
+import './products.css';
+import { Link } from 'react-router-dom';
 
 export default function Products() {
   const [items, setItems] = useState([]);
@@ -14,9 +16,14 @@ export default function Products() {
       const arrItems = response.map((item) => {
         return (
           <li key={item.id}>
-            <h3>{item.title}</h3>
-            <img alt="item" src={item.image} />
-            <p>{item.price}</p>
+            <Link
+              to={`/shop/${item.id}`}
+              style={{ textDecoration: 'none', color: 'black' }}
+            >
+              <h4>{item.title}</h4>
+              <img alt="item" src={item.image} />
+              <p>${item.price}</p>
+            </Link>
           </li>
         );
       });
@@ -26,5 +33,5 @@ export default function Products() {
     fetchDataGet();
   }, []);
 
-  return <ul>{items}</ul>;
+  return <ul className="product-container">{items}</ul>;
 }

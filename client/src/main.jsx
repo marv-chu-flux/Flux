@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import Shop from './shop-page/Shop.jsx';
+import Item from './shop-page/Item.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -13,6 +14,16 @@ const router = createBrowserRouter([
   {
     path: '/shop',
     element: <Shop />,
+    // children: [
+    //   {
+    //     path: '/shop/:itemId',
+    //     element: <Item />,
+    //   },
+    // ],
+  },
+  {
+    path: '/shop/:itemId',
+    element: <Item />,
   },
 ]);
 
