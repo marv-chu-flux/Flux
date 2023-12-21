@@ -1,18 +1,19 @@
 // import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './images/logo.png';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import ItemCard from './components/ItemCard/Card';
+import Header from './components/HomePage/Header/Header';
+import Footer from './components/HomePage/Footer/Footer';
+import ItemCard from './components/HomePage/ItemCard/Card';
+import ImageSlide from './components/HomePage/ImageSlide/ImageSlide';
 
 
 function App() {
   return (
     <>
       <Header/>
-      {/* <ItemCard/> */}
+      <ImageSlide/>
+      <ItemCard/>
       <Footer/>
     </>
   );
