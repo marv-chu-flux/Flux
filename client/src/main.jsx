@@ -5,6 +5,8 @@ import Shop from './components/shop-page/Shop.jsx';
 import Item from './components/shop-page/Item.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Cart from './components/cart-page/Cart.jsx';
+import ErrorPage from './components/shop-page/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,16 +16,15 @@ const router = createBrowserRouter([
   {
     path: '/shop',
     element: <Shop />,
-    // children: [
-    //   {
-    //     path: '/shop/:itemId',
-    //     element: <Item />,
-    //   },
-    // ],
   },
   {
     path: '/shop/:itemId',
     element: <Item />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/cart',
+    element: <Cart />,
   },
 ]);
 

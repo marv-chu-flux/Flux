@@ -33,9 +33,5 @@ export default function Products() {
     fetchDataGet();
   }, []);
 
-  return (
-    <>
-      <ul className="product-container">{items}</ul>
-    </>
-  );
+  return <ul className="product-container">{items}</ul>;
 }
