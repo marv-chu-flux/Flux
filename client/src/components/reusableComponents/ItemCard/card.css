@@ -3,13 +3,14 @@
   margin-bottom: 1rem;
   border: none;
   margin-left: 50px;
+  margin-top: 30px;
 }
 
 .g-4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .card-img-top {
