@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/HomePage/App.jsx';
-import Shop from './shop-page/Shop.jsx';
-import Item from './shop-page/Item.jsx';
+import Shop from './components/shop-page/Shop.jsx';
+import Item from './components/shop-page/Item.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 

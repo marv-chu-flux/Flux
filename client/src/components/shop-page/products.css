@@ -5,14 +5,13 @@
 
 .product-container {
   width: 95vw;
-  margin: 0 auto;
+  margin: 90px auto;
   list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
   gap: 20px;
-  margin: 30px;
 }
 
 .product-container li {

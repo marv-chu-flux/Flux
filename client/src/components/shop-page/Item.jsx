@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
-import Footer from '../components/reusableComponents/Footer/Footer';
-import Header from '../components/reusableComponents/Header/Header';
-import { fetchData } from '../utils/utils';
+import Footer from '../reusableComponents/Footer/Footer';
+import Header from '../reusableComponents/Header/Header';
+import { fetchData } from '../../utils/utils';
 import { useState, useEffect } from 'react';
+import './item.css';
 
 export default function Item() {
   const { itemId } = useParams();
@@ -17,11 +18,14 @@ export default function Item() {
       console.log(response);
 
       const curItem = (
-        <section key={response.id}>
-          <h4>{response.title}</h4>
-          <h5>{response.description}</h5>
+        <section key={response.id} className="product">
           <img alt="item" src={response.image} />
-          <p>${response.price}</p>
+
+          <section className="desc">
+            <h3>{response.title}</h3>
+            <p className="price">${response.price} USD</p>
+            <p className="description">{response.description}</p>
+          </section>
         </section>
       );
 
@@ -33,7 +37,7 @@ export default function Item() {
   return (
     <>
       <Header />
-      <h1>{item}</h1>
+      {item}
       <Footer />
     </>
   );

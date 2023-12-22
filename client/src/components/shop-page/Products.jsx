@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchData } from '../utils/utils';
+import { fetchData } from '../../utils/utils';
 import './products.css';
 import { Link } from 'react-router-dom';
 
@@ -33,5 +33,9 @@ export default function Products() {
     fetchDataGet();
   }, []);
 
-  return <ul className="product-container">{items}</ul>;
+  return (
+    <>
+      <ul className="product-container">{items}</ul>
+    </>
+  );
 }
