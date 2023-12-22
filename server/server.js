@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const routes = require('./routes');
 
 const app = express();
 const PORT = 3456;
@@ -18,6 +19,8 @@ app.use(cors());
 app.get('/api', (req, res) => {
   res.send({ msg: 'hi' });
 });
+
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`Server is now running on http://localhost:${PORT}`);
