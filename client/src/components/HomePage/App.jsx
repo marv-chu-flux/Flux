@@ -6,6 +6,7 @@ import Header from '../reusableComponents/Header/Header';
 import Footer from '../reusableComponents/Footer/Footer';
 import ItemCard from '../reusableComponents/ItemCard/Card';
 import ImageSlide from '../reusableComponents/ImageSlide/ImageSlide';
+// import News from '../reusableComponents/News/News';
 
 
 
@@ -14,6 +15,7 @@ function App() {
     <>
       <Header/>
       <ImageSlide/>
+      {/* <News/> */}
       <ItemCard/>
       <Footer/>
     </>

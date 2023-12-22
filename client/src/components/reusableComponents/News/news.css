@@ -1,0 +1,16 @@
+
+.word-container {
+    overflow: hidden;
+  background-color: bisque;
+  white-space: nowrap;
+  animation: moveWords 10s linear infinite; /* Adjust the duration as needed */
+}
+
+@keyframes moveWords {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
