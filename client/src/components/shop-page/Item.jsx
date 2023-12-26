@@ -8,6 +8,10 @@ import './item.css';
 export default function Item() {
   const { itemId } = useParams();
 
+  if (itemId > 20) {
+    throw new Error('This item does not exist');
+  }
+
   const [item, setItem] = useState([]);
 
   useEffect(() => {
