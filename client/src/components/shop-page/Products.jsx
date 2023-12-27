@@ -22,7 +22,7 @@ export default function Products() {
             >
               <h4>{item.title}</h4>
               <img alt="item" src={item.image} />
-              <p>${item.price}</p>
+              <p>${item.price.toFixed(2)}</p>
             </Link>
           </li>
         );
