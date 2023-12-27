@@ -26,8 +26,23 @@ Link {
   color: black;
 }
 
-.product-container li:hover {
+/* .product-container li:hover {
   scale: 1.1;
+} */
+
+.product-container li {
+  margin: 10px;
+  width: 200px; /* Set a fixed width for each product item */
+}
+
+.product-container li img {
+  width: 100%; /* Make the image fill the container */
+  height: auto; /* Maintain the aspect ratio */
+  transition: transform 0.5s ease-in-out; /* Add a smooth transition effect */
+}
+
+.product-container li img:hover {
+  transform: scale(1.1); /* Scale the image on hover */
 }
 
 .product-container img {

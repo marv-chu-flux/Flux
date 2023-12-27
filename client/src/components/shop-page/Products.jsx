@@ -20,8 +20,9 @@ export default function Products() {
               to={`/shop/${item.id}`}
               style={{ textDecoration: 'none', color: 'black' }}
             >
-              <h4>{item.title}</h4>
+              
               <img alt="item" src={item.image} />
+              <h4>{item.title}</h4>
               <p>${item.price}</p>
             </Link>
           </li>
