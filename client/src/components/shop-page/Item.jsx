@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
 import Footer from '../reusableComponents/Footer/Footer';
 import Header from '../reusableComponents/Header/Header';
-import { fetchData } from '../../utils/utils';
+import { fetchData, getOptsWithBody } from '../../utils/utils';
 import { useState, useEffect } from 'react';
 import './item.css';
+import CartButton from './cartButton';
 
 export default function Item() {
   const { itemId } = useParams();
@@ -21,6 +22,16 @@ export default function Item() {
       )[0];
       console.log(response);
 
+      async function cartHandler() {
+        const postBody = getOptsWithBody({
+          name: response.title,
+          image_url: response.image,
+          price: response.price.toFixed(2),
+          quantity: 1,
+        });
+        console.log(await fetchData('/cart', postBody));
+      }
+
       const curItem = (
         <section key={response.id} className="product">
           <img alt="item" src={response.image} />
@@ -28,7 +39,7 @@ export default function Item() {
           <section className="desc">
             <h3>{response.title}</h3>
             <p className="price">${response.price.toFixed(2)} USD</p>
-            <button>Add to cart</button>
+            <CartButton cartHandler={cartHandler} />
             <p className="description">{response.description}</p>
           </section>
         </section>

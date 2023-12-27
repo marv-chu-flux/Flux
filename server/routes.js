@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.use(addModels);
 
-router.get('/hi', controllers.create);
+router.post('/cart', controllers.create);
 
 module.exports = router;

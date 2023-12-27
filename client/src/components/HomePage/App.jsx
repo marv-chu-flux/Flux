@@ -8,16 +8,14 @@ import ItemCard from '../reusableComponents/ItemCard/Card';
 import ImageSlide from '../reusableComponents/ImageSlide/ImageSlide';
 // import News from '../reusableComponents/News/News';
 
-
-
 function App() {
   return (
     <>
-      <Header/>
-      <ImageSlide/>
+      <Header />
+      <ImageSlide />
       {/* <News/> */}
-      <ItemCard/>
-      <Footer/>
+      <ItemCard />
+      <Footer />
     </>
   );
 }

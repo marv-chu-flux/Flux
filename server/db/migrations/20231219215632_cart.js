@@ -7,7 +7,7 @@ exports.up = function (knex) {
     table.increments();
     table.string('name');
     table.string('image_url');
-    table.integer('price');
+    table.float('price');
     table.integer('quantity');
   });
 };
