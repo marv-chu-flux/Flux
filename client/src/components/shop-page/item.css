@@ -20,7 +20,7 @@
   max-width: 400px;
 }
 
-.desc > * {
+h3 {
   padding-bottom: 20px;
 }
 
@@ -30,4 +30,16 @@
 
 .price {
   font-size: 1.1rem;
+}
+
+button {
+  background-color: #151414;
+  padding: 10px 30px;
+  color: white;
+  margin-bottom: 20px;
+  border: none;
+}
+
+button:hover {
+  background-color: #393737;
 }

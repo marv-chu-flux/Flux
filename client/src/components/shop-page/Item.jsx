@@ -8,6 +8,10 @@ import './item.css';
 export default function Item() {
   const { itemId } = useParams();
 
+  if (itemId > 20) {
+    throw new Error('This item does not exist');
+  }
+
   const [item, setItem] = useState([]);
 
   useEffect(() => {
@@ -23,8 +27,8 @@ export default function Item() {
 
           <section className="desc">
             <h3>{response.title}</h3>
-            <p className="price">${response.price} USD</p>
-            <button>Add</button>
+            <p className="price">${response.price.toFixed(2)} USD</p>
+            <button>Add to cart</button>
             <p className="description">{response.description}</p>
           </section>
         </section>
