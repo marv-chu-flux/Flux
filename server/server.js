@@ -16,10 +16,6 @@ app.use(cors());
 
 // app.use(routes);
 
-app.get('/api', (req, res) => {
-  res.send({ msg: 'hi' });
-});
-
 app.use(routes);
 
 app.listen(PORT, () => {

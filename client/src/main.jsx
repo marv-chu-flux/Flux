@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: '/cart',
+    path: '/shop/cart',
     element: <Cart />,
   },
 ]);

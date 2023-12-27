@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cart-section {
+  margin: 90px 0;
+  text-align: center;
+}
+
+.sep {
+  text-align: center;
+  border: 0.2px rgb(122, 118, 118) solid;
+  width: 90%;
+  margin: 0 auto;
+}
+ul {
+  list-style: none;
+  margin-top: 70px;
+}
+
+li {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 70px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
