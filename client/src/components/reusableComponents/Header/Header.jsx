@@ -10,20 +10,19 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 import logo from "../images/logo.png";
+import cart from "../images/cartIcon.png"
 
 const Header = () => {
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary fixed-top">
-        <Container fluid>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
+        <Container fluid>        
             <Nav
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link as={Link} to="/shop">
+              <Nav.Link as={Link} to="/shop" className="hover">
                 Shop
               </Nav.Link>
             </Nav>
@@ -41,7 +40,17 @@ const Header = () => {
               />
               {/* <Button variant="outline-success">Search</Button> */}
             </Form>
-          </Navbar.Collapse>
+
+            <Nav
+              // className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <Nav.Link as={Link} to="/cart" className="hover">
+                <img src={cart} alt="Cart" />
+              </Nav.Link>
+            </Nav>
+         
         </Container>
       </Navbar>
 

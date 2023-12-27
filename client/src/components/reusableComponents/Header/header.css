@@ -5,6 +5,7 @@
 
 .navbar-nav {
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .d-flex {
@@ -27,3 +28,12 @@
   color: rgb(26, 26, 26) !important;
   font-weight: 500;
 }
+
+.hover {
+  transition: opacity 0.1s ease-in-out;
+}
+
+.hover:hover {
+  opacity: 0.3; /* Adjust the opacity as needed */
+}
+

@@ -21,7 +21,7 @@ export default function Products() {
               style={{ textDecoration: 'none', color: 'black' }}
             >
               
-              <img alt="item" src={item.image} />
+              <div><img alt="item" src={item.image} /></div>
               <h4>{item.title}</h4>
               <p>${item.price.toFixed(2)}</p>
             </Link>
