@@ -20,8 +20,9 @@ export default function Products() {
               to={`/shop/${item.id}`}
               style={{ textDecoration: 'none', color: 'black' }}
             >
+              
+              <div><img alt="item" src={item.image} /></div>
               <h4>{item.title}</h4>
-              <img alt="item" src={item.image} />
               <p>${item.price.toFixed(2)}</p>
             </Link>
           </li>
