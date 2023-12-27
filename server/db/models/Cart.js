@@ -11,7 +11,16 @@ class Cart {
       return null;
     }
   }
-  static async list() {}
+  static async list() {
+    try {
+      const query = `SELECT * FROM cart`;
+      const res = await knex.raw(query);
+      return res.rows;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
   static async increment() {}
   static async decrement() {}
   static async destroyAll() {}
