@@ -9,7 +9,6 @@ export default function Shop() {
     <>
       <Header />
       <SearchBar/>
-      <Products />
       <Footer />
       <div id="detail">
         <Outlet />
