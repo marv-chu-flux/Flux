@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.product-container {
+  width: 95vw;
+  margin: 90px auto;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 20px;
+}
+
+.product-container li {
+  padding: 10px;
+  border: 1px black solid;
+  width: 300px;
+  cursor: pointer;
+  transition: ease 0.7s;
+}
+
+Link {
+  color: black;
+}
+
+.product-container li:hover {
+  scale: 1.1;
+}
+
+.product-container img {
+  width: 150px;
+  height: 150px;
+  padding: 10px 0;
+}
+
+.search-bar-container {
+  margin-top: 100px; 
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
