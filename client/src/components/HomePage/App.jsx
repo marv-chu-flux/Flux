@@ -13,7 +13,6 @@ function App() {
     <>
       <Header />
       <ImageSlide />
-      {/* <News/> */}
       <ItemCard />
       <Footer />
     </>

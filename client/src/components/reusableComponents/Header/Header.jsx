@@ -35,7 +35,7 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link as={Link} to="/cart" className="hover">
+              <Nav.Link as={Link} to="/shop/cart" className="hover">
                 <img src={cart} alt="Cart" />
               </Nav.Link>
             </Nav>
