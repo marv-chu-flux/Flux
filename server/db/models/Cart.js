@@ -44,7 +44,16 @@ class Cart {
     }
   }
 
-  static async update() {}
+  static async update(op, id) {
+    try {
+      const query = `UPDATE cart SET quantity = quantity ${op} 1 WHERE id = (?);`;
+      const res = await knex.raw(query, [id]);
+      return res.rows[0] || null;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
 }
 
 module.exports = Cart;

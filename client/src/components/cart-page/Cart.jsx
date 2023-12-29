@@ -1,7 +1,7 @@
 import Footer from '../reusableComponents/Footer/Footer';
 import Header from '../reusableComponents/Header/Header';
 import './cart.css';
-import { fetchData } from '../../utils/utils';
+import { fetchData, getOptsWithBody } from '../../utils/utils';
 import { useEffect, useState, useRef } from 'react';
 import CartButton from '../shop-page/cartButton';
 
@@ -12,7 +12,9 @@ export default function Cart() {
 
   useEffect(() => {
     async function loadCart() {
-      const data = (await fetchData('/cart'))[0];
+      let data = (await fetchData('/cart'))[0];
+
+      data = data.sort((a, b) => b.id - a.id);
 
       console.log(data);
 
@@ -30,9 +32,19 @@ export default function Cart() {
             <img alt="item" src={item.image_url} />
             <p>{item.name}</p>
             <p>${item.price} USD</p>
-            <CartButton text={'-'} />
+            <CartButton
+              text={'-'}
+              cartHandler={() => {
+                updateQuantity('-', item.id, item.quantity);
+              }}
+            />
             <p>{item.quantity}</p>
-            <CartButton text={'+'} />
+            <CartButton
+              text={'+'}
+              cartHandler={() => {
+                updateQuantity('+', item.id);
+              }}
+            />
             <CartButton
               text={'Remove Item'}
               cartHandler={() => handleRemove(item.id)}
@@ -46,6 +58,18 @@ export default function Cart() {
     }
 
     loadCart();
+
+    async function updateQuantity(op, id, quantity) {
+      const patchBody = getOptsWithBody({ op }, 'PATCH');
+      await fetchData(`/cart${id}`, patchBody);
+
+      if (quantity === 1) {
+        handleRemove(id);
+        return;
+      }
+
+      loadCart();
+    }
 
     async function handleRemove(id) {
       await fetchData(`/cart${id}`, { method: 'DELETE' });
