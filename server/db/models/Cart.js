@@ -11,7 +11,7 @@ class Cart {
         const res = await knex.raw(query, [name, image_url, price, quantity]);
         return res.rows[0];
       } else {
-        await Cart.increment(name);
+        return await Cart.increment(name);
       }
     } catch (err) {
       console.error(err);
@@ -41,7 +41,15 @@ class Cart {
     }
   }
 
-  static async destroyAll() {}
+  static async destroyAll() {
+    try {
+      await knex.raw('TRUNCATE cart');
+      return true;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
 
   static async increment(name) {
     const query = `UPDATE cart SET quantity = quantity + 1 WHERE name = (?)`;

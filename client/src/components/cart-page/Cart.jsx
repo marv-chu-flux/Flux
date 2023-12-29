@@ -2,11 +2,13 @@ import Footer from '../reusableComponents/Footer/Footer';
 import Header from '../reusableComponents/Header/Header';
 import './cart.css';
 import { fetchData } from '../../utils/utils';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import CartButton from '../shop-page/cartButton';
 
 export default function Cart() {
   const [list, setList] = useState('loading...');
+
+  const ref = useRef(null);
 
   useEffect(() => {
     async function loadCart() {
@@ -16,8 +18,11 @@ export default function Cart() {
 
       if (data.length === 0) {
         setList('No Items in your cart!');
+        ref.current = null;
         return;
       }
+
+      ref.current = <CartButton text={'Empty Cart'} cartHandler={emptyCart} />;
 
       let cartItems = data.map((item) => {
         const listItem = (
@@ -25,7 +30,9 @@ export default function Cart() {
             <img alt="item" src={item.image_url} />
             <p>{item.name}</p>
             <p>${item.price} USD</p>
+            <CartButton text={'-'} />
             <p>{item.quantity}</p>
+            <CartButton text={'+'} />
             <CartButton
               text={'Remove Item'}
               cartHandler={() => handleRemove(item.id)}
@@ -45,6 +52,11 @@ export default function Cart() {
 
       loadCart();
     }
+
+    async function emptyCart() {
+      await fetchData(`/cart`, { method: 'DELETE' });
+      loadCart();
+    }
   }, []);
 
   return (
@@ -54,6 +66,7 @@ export default function Cart() {
         <h3>Cart</h3>
         <div className="sep"></div>
         <ul>{list}</ul>
+        {ref.current}
         <div className="sep"></div>
       </section>
       <Footer />
