@@ -11,7 +11,6 @@ export default function Products() {
       const response = (
         await fetchData('https://fakestoreapi.com/products')
       )[0];
-      console.log(response);
 
       const arrItems = response.map((item) => {
         return (
