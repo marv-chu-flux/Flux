@@ -3,16 +3,9 @@ const knex = require('./knex');
 class Cart {
   static async create(name, image_url, price, quantity) {
     try {
-      const check = `SELECT * FROM cart WHERE name = (?)`;
-      const resCheck = await knex.raw(check, [name]);
-
-      if (resCheck.rows.length === 0) {
-        const query = `INSERT INTO cart (name, image_url, price, quantity) values (?, ?, ?, ?) returning *`;
-        const res = await knex.raw(query, [name, image_url, price, quantity]);
-        return res.rows[0];
-      } else {
-        return await Cart.increment(name);
-      }
+      const query = `INSERT INTO cart (name, image_url, price, quantity) values (?, ?, ?, ?) ON CONFLICT (name) DO UPDATE SET quantity = cart.quantity + 1 RETURNING *`;
+      const res = await knex.raw(query, [name, image_url, price, quantity]);
+      return res.rows[0];
     } catch (err) {
       console.error(err);
       return null;
@@ -51,13 +44,7 @@ class Cart {
     }
   }
 
-  static async increment(name) {
-    const query = `UPDATE cart SET quantity = quantity + 1 WHERE name = (?)`;
-    const res = await knex.raw(query, [name]);
-    return res.rows[0] || null;
-  }
-
-  static async decrement() {}
+  static async update() {}
 }
 
 module.exports = Cart;
