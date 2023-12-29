@@ -39,7 +39,7 @@ export default function Item() {
           <section className="desc">
             <h3>{response.title}</h3>
             <p className="price">${response.price.toFixed(2)} USD</p>
-            <CartButton cartHandler={cartHandler} />
+            <CartButton cartHandler={cartHandler} text={'Add to cart'} />
             <p className="description">{response.description}</p>
           </section>
         </section>

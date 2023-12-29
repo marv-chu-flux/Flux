@@ -3,6 +3,7 @@ import Header from '../reusableComponents/Header/Header';
 import './cart.css';
 import { fetchData } from '../../utils/utils';
 import { useEffect, useState } from 'react';
+import CartButton from '../shop-page/cartButton';
 
 export default function Cart() {
   const [list, setList] = useState('loading...');
@@ -13,21 +14,37 @@ export default function Cart() {
 
       console.log(data);
 
-      const cartItems = data.map((item) => {
-        return (
+      if (data.length === 0) {
+        setList('No Items in your cart!');
+        return;
+      }
+
+      let cartItems = data.map((item) => {
+        const listItem = (
           <li key={item.id}>
             <img alt="item" src={item.image_url} />
             <p>{item.name}</p>
             <p>${item.price} USD</p>
             <p>{item.quantity}</p>
+            <CartButton
+              text={'Remove Item'}
+              cartHandler={() => handleRemove(item.id)}
+            />
           </li>
         );
+        return listItem;
       });
 
       setList(cartItems);
     }
 
     loadCart();
+
+    async function handleRemove(id) {
+      await fetchData(`/cart${id}`, { method: 'DELETE' });
+
+      loadCart();
+    }
   }, []);
 
   return (
