@@ -22,6 +22,14 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
+
 .card-text {
   font-size: 0.9rem;
+}
+
+.center-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

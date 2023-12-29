@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchData } from "../../../utils/utils"; 
+import { fetchData } from "../../../utils/utils";
 import "./searchBar.css";
 
 import Form from "react-bootstrap/Form";
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState("");
   const [items, setItems] = useState([]);
-
+  const [noProductFound, setNoProductFound] = useState(false);
 
   useEffect(() => {
     const fetchDataForSearch = async () => {
@@ -16,7 +16,7 @@ const SearchBar = () => {
         const response = (await fetchData("https://fakestoreapi.com/products"))[0];
 
         const capitalLetter = (searchWord) => {
-          return searchWord.charAt(0).toUpperCase() + searchWord.slice(1);
+          return searchWord.charAt(0).toUpperCase() + searchWord.slice(1).toLowerCase();
         };
   
         const SearchValueCapital = capitalLetter(searchValue);
@@ -26,6 +26,7 @@ const SearchBar = () => {
         );
 
         setItems(filterItems);
+        setNoProductFound(filterItems.length === 0);
 
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -37,7 +38,6 @@ const SearchBar = () => {
   const handleSearchChange = (e) => {
     const searchValue = e.target.value;
     setSearchValue(searchValue);
-    console.log(searchValue)
   };
 
   return (
@@ -53,23 +53,25 @@ const SearchBar = () => {
         />
       </Form>
 
-      <ul className="search-results">
-        {items.map((result) => (
-          <li key={result.id}>
-          <Link
-              to={`/shop/${result.id}`}
-              style={{ textDecoration: 'none', color: 'black' }}
-            >
-              
-              <div><img alt="item" src={result.image} /></div>
-              <h4>{result.title}</h4>
-              <p>${result.price.toFixed(2)}</p>
-            </Link>
-            <button>Add to Cart</button>
-          </li>
-        ))}
-      </ul>
-
+      {noProductFound ? (
+        <p className="no-product-found">No product found</p>
+      ) : (
+        <ul className="search-results">
+          {items.map((result) => (
+            <li key={result.id}>
+              <Link
+                to={`/shop/${result.id}`}
+                style={{ textDecoration: 'none', color: 'black' }}
+              >
+                <div><img alt="item" src={result.image} /></div>
+                <h4>{result.title}</h4>
+                <p>${result.price.toFixed(2)}</p>
+              </Link>
+              <button>Add to Cart</button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

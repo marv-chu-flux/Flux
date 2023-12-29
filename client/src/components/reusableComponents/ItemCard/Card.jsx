@@ -1,4 +1,4 @@
-import "./card.css"
+import "./card.css";
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -9,8 +9,8 @@ import shopGif2 from "../images/clothGif2.gif";
 import shopGif3 from "../images/clothGif3.gif";
 
 const ItemCard = () => {
-    return (
-      <Row xs={1} md={2} lg={3} className="g-4">
+  return (
+    <Row xs={1} md={2} lg={3} className="g-4 center-cards">
       <Col>
         <Card className="mb-4">
           <Card.Img variant="top" src={shopGif} />
@@ -52,7 +52,7 @@ const ItemCard = () => {
         </Card>
       </Col>
     </Row>
-    )    
-}
+  );
+};
 
-export default ItemCard
+export default ItemCard;

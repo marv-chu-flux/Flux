@@ -23,6 +23,10 @@
   height: 45px;
 }
 
+.nav-link img {
+  width: 30px; 
+  height: auto; 
+}
 .navbar-nav .nav-link,
 .navbar-brand {
   color: rgb(26, 26, 26) !important;
@@ -34,6 +38,6 @@
 }
 
 .hover:hover {
-  opacity: 0.3; /* Adjust the opacity as needed */
+  opacity: 0.3; 
 }
 
