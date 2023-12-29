@@ -65,6 +65,7 @@ const SearchBar = () => {
               <h4>{result.title}</h4>
               <p>${result.price.toFixed(2)}</p>
             </Link>
+            <button>Add to Cart</button>
           </li>
         ))}
       </ul>
