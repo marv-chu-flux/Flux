@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { fetchData } from "../../../utils/utils"; 
 import "./searchBar.css";
 
 import Form from "react-bootstrap/Form";
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -24,7 +25,6 @@ const SearchBar = () => {
           item.title.includes(SearchValueCapital)
         );
 
-        console.log(filterItems)
         setItems(filterItems);
 
       } catch (error) {
@@ -52,6 +52,22 @@ const SearchBar = () => {
           onChange={handleSearchChange}
         />
       </Form>
+
+      <ul className="search-results">
+        {items.map((result) => (
+          <li key={result.id}>
+          <Link
+              to={`/shop/${result.id}`}
+              style={{ textDecoration: 'none', color: 'black' }}
+            >
+              
+              <div><img alt="item" src={result.image} /></div>
+              <h4>{result.title}</h4>
+              <p>${result.price.toFixed(2)}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
 
     </div>
   );
