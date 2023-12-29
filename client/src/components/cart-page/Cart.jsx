@@ -9,12 +9,19 @@ export default function Cart() {
   const [list, setList] = useState('loading...');
 
   const ref = useRef(null);
+  const total = useRef(0);
 
   useEffect(() => {
     async function loadCart() {
       let data = (await fetchData('/cart'))[0];
 
+      total.current = 0;
+
       data = data.sort((a, b) => b.id - a.id);
+
+      data.forEach((item) => {
+        total.current += +(item.price * item.quantity).toFixed(2);
+      });
 
       console.log(data);
 
@@ -24,7 +31,12 @@ export default function Cart() {
         return;
       }
 
-      ref.current = <CartButton text={'Empty Cart'} cartHandler={emptyCart} />;
+      ref.current = (
+        <>
+          <p>total: ${total.current}</p>
+          <CartButton text={'Empty Cart'} cartHandler={emptyCart} />
+        </>
+      );
 
       let cartItems = data.map((item) => {
         const listItem = (
