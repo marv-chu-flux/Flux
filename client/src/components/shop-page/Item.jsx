@@ -14,22 +14,34 @@ export default function Item() {
   }
 
   const [item, setItem] = useState([]);
+  const [buttonText, setButtonText] = useState('Add to Cart');
 
   useEffect(() => {
     async function fetchDataGet() {
       const response = (
         await fetchData(`https://fakestoreapi.com/products/${itemId}`)
       )[0];
-      console.log(response);
 
       async function cartHandler() {
-        const postBody = getOptsWithBody({
-          name: response.title,
-          image_url: response.image,
-          price: response.price.toFixed(2),
-          quantity: 1,
-        });
-        console.log(await fetchData('/cart', postBody));
+        try {
+          setButtonText('Item Added');
+
+          const postBody = getOptsWithBody({
+            name: response.title,
+            image_url: response.image,
+            price: response.price.toFixed(2),
+            quantity: 1,
+          });
+
+          console.log(await fetchData('/cart', postBody));
+        } catch (error) {
+          console.error("Error adding to cart:", error);
+        } finally {
+          
+          setTimeout(() => {
+            setButtonText('Add to Cart');
+          }, 2000);
+        }
       }
 
       const curItem = (
@@ -39,7 +51,7 @@ export default function Item() {
           <section className="desc">
             <h3>{response.title}</h3>
             <p className="price">${response.price.toFixed(2)} USD</p>
-            <CartButton cartHandler={cartHandler} text={'Add to cart'} />
+            <CartButton cartHandler={cartHandler} text={buttonText} />
             <p className="description">{response.description}</p>
           </section>
         </section>
@@ -48,7 +60,7 @@ export default function Item() {
       setItem(curItem);
     }
     fetchDataGet();
-  }, [itemId]);
+  }, [itemId, buttonText]);
 
   return (
     <>
