@@ -106,7 +106,7 @@ const SearchBar = () => {
                 <p>${result.price.toFixed(2)}</p>
               </Link>
 
-              <CartButton cartHandler={() => cartHandler(result)} text={"hi"} />
+              <CartButton cartHandler={() => cartHandler(result)} text={"Add to Cart"} />
             </li>
           ))}
         </ul>
