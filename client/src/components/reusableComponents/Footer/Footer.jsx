@@ -1,5 +1,4 @@
 import './footer.css';
-
 import logo from '../images/fluxWhiteLogo.png';
 
 const Footer = () => {
