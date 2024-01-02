@@ -4,7 +4,7 @@ import Header from '../reusableComponents/Header/Header';
 import { fetchData, getOptsWithBody } from '../../utils/utils';
 import { useState, useEffect } from 'react';
 import './item.css';
-import CartButton from './cartButton';
+import CartButton from '../shop-page/CartButton';
 
 export default function Item() {
   const { itemId } = useParams();
@@ -35,9 +35,8 @@ export default function Item() {
 
           console.log(await fetchData('/cart', postBody));
         } catch (error) {
-          console.error("Error adding to cart:", error);
+          console.error('Error adding to cart:', error);
         } finally {
-          
           setTimeout(() => {
             setButtonText('Add to Cart');
           }, 2000);
