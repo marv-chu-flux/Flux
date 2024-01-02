@@ -1,14 +1,15 @@
-import "./footer.css"
+import './footer.css';
 
-import logo from "../images/fluxWhitelogo.png";
-
+import logo from '../images/fluxWhiteLogo.png';
 
 const Footer = () => {
   return (
     <footer>
       <div className="footer-container">
         <div className="logo-container">
-          <a href="/"><img src={logo} alt="Logo" /></a>
+          <a href="/">
+            <img src={logo} alt="Logo" />
+          </a>
         </div>
         <nav className="footer-nav">
           <ul>

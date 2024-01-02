@@ -4,7 +4,7 @@ import Header from '../reusableComponents/Header/Header';
 import { fetchData, getOptsWithBody } from '../../utils/utils';
 import { useState, useEffect } from 'react';
 import './item.css';
-import CartButton from '../shop-page/CartButton';
+import CartButton from './CartButton';
 
 export default function Item() {
   const { itemId } = useParams();
