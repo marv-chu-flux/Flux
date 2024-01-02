@@ -1,20 +1,19 @@
-import { useState, useEffect, useRef } from "react";
-import { fetchData, getOptsWithBody } from "../../../utils/utils";
-import "./searchBar.css";
-
-import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
-import CartButton from "../cartButton";
+import { useState, useEffect, useRef } from 'react';
+import { fetchData, getOptsWithBody } from '../../../utils/utils';
+import './searchBar.css';
+import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
+import CartButton from '../CartButton';
 
 const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const [items, setItems] = useState([]);
   const [noProductFound, setNoProductFound] = useState(false);
 
   async function cartHandler(response) {
     try {
-      if (!response || typeof response.price === "undefined") {
-        throw new Error("Invalid");
+      if (!response || typeof response.price === 'undefined') {
+        throw new Error('Invalid');
       }
 
       const postBody = getOptsWithBody({
@@ -24,11 +23,10 @@ const SearchBar = () => {
         quantity: 1,
       });
 
-      console.log(await fetchData("/cart", postBody));
+      console.log(await fetchData('/cart', postBody));
     } catch (error) {
-      console.error("Error adding to cart:", error);
-    } 
-
+      console.error('Error adding to cart:', error);
+    }
   }
 
   const ref = useRef(0);
@@ -37,11 +35,11 @@ const SearchBar = () => {
     const fetchDataForSearch = async () => {
       try {
         const response = (
-          await fetchData("https://fakestoreapi.com/products")
+          await fetchData('https://fakestoreapi.com/products')
         )[0];
 
-        console.log("Api Response:", response);
-        console.log("Api Response Title:", response.title);
+        console.log('Api Response:', response);
+        console.log('Api Response Title:', response.title);
 
         ref.current = () => cartHandler(response);
 
@@ -65,7 +63,7 @@ const SearchBar = () => {
         setNoProductFound(filterItems.length === 0);
         cartHandler(response);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
       }
     };
     fetchDataForSearch();
@@ -97,7 +95,7 @@ const SearchBar = () => {
             <li key={result.id}>
               <Link
                 to={`/shop/${result.id}`}
-                style={{ textDecoration: "none", color: "black" }}
+                style={{ textDecoration: 'none', color: 'black' }}
               >
                 <div>
                   <img alt="item" src={result.image} />
@@ -106,7 +104,10 @@ const SearchBar = () => {
                 <p>${result.price.toFixed(2)}</p>
               </Link>
 
-              <CartButton cartHandler={() => cartHandler(result)} text={"Add to Cart"} />
+              <CartButton
+                cartHandler={() => cartHandler(result)}
+                text={'Add to Cart'}
+              />
             </li>
           ))}
         </ul>

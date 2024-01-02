@@ -1,12 +1,10 @@
-import "./card.css";
-
+import './card.css';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
-import shopGif from "../images/clothGif.gif";
-import shopGif2 from "../images/clothGif2.gif";
-import shopGif3 from "../images/clothGif3.gif";
+import shopGif from '../images/clothGif.gif';
+import shopGif2 from '../images/clothGif2.gif';
+import shopGif3 from '../images/clothGif3.gif';
 
 const ItemCard = () => {
   return (

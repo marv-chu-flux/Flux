@@ -1,12 +1,9 @@
-import React from "react";
-import "./ImageSlide.css";
-import { Outlet, Link } from "react-router-dom";
-
-import Carousel from "react-bootstrap/Carousel";
-
-import shopImage1 from "../images/shopImage1.jpg";
-import shopImage2 from "../images/shopImage2.jpg";
-import shopImage3 from "../images/shopImage3.jpg";
+import './ImageSlide.css';
+import { Link } from 'react-router-dom';
+import Carousel from 'react-bootstrap/Carousel';
+import shopImage1 from '../images/shopImage1.jpg';
+import shopImage2 from '../images/shopImage2.jpg';
+import shopImage3 from '../images/shopImage3.jpg';
 
 const ImageSlide = () => {
   return (

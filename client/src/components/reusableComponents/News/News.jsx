@@ -1,11 +1,10 @@
-import React from "react";
-import "./news.css";
+import './news.css';
 
 const News = () => {
   return (
     <>
       <body>
-        <div class="word-container">
+        <div className="word-container">
           <span>This</span>
         </div>
       </body>
