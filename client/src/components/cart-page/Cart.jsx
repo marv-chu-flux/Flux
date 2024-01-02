@@ -3,7 +3,7 @@ import Header from '../reusableComponents/Header/Header';
 import './cart.css';
 import { fetchData, getOptsWithBody } from '../../utils/utils';
 import { useEffect, useState, useRef } from 'react';
-import CartButton from '../shop-page/cartButton';
+import CartButton from '../shop-page/CartButton';
 
 export default function Cart() {
   const [list, setList] = useState('loading...');
