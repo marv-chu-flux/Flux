@@ -2,6 +2,6 @@
 // import it into any model that wants to talk to the DB
 require('dotenv').config();
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'production';
 const config = require('../../knexfile')[env];
 module.exports = require('knex')(config);
