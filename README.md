@@ -23,3 +23,6 @@ Flux provides a seamless shopping experience with a modern and user-friendly des
 - 👤 Functional search bar 
 - 🔄 Integration with Fakestore API for product data
 - 🗃️ Data storage using Postgres
+
+![image](https://github.com/marv-chu-flux/Flux/assets/119367685/22db4ae4-caaa-4e4c-9503-704c36dd1a08)
+
