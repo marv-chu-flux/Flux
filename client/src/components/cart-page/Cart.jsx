@@ -13,7 +13,9 @@ export default function Cart() {
 
   useEffect(() => {
     async function loadCart() {
-      let data = (await fetchData('/cart'))[0];
+      let data = (
+        await fetchData('https://flux-backend-wrmh.onrender.com/cart')
+      )[0];
 
       total.current = 0;
 

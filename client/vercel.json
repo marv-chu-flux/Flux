@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/cart/:path*",
-      "destination": "https://flux-backend-wrmh.onrender.com/:path*"
+      "source": "",
+      "destination": ""
     }
   ]
 }
