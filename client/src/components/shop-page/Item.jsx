@@ -33,7 +33,7 @@ export default function Item() {
             quantity: 1,
           });
 
-          console.log(await fetchData('/cart', postBody));
+          console.log(await fetchData('https://flux-backend-wrmh.onrender.com/cart', postBody));
         } catch (error) {
           console.error('Error adding to cart:', error);
         } finally {

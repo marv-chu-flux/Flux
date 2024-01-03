@@ -75,7 +75,10 @@ export default function Cart() {
 
     async function updateQuantity(op, id, quantity) {
       const patchBody = getOptsWithBody({ op }, 'PATCH');
-      await fetchData(`/cart${id}`, patchBody);
+      await fetchData(
+        `https://flux-backend-wrmh.onrender.com/cart${id}`,
+        patchBody
+      );
 
       if (quantity === 1) {
         handleRemove(id);
@@ -86,13 +89,17 @@ export default function Cart() {
     }
 
     async function handleRemove(id) {
-      await fetchData(`/cart${id}`, { method: 'DELETE' });
+      await fetchData(`https://flux-backend-wrmh.onrender.com/cart${id}`, {
+        method: 'DELETE',
+      });
 
       loadCart();
     }
 
     async function emptyCart() {
-      await fetchData(`/cart`, { method: 'DELETE' });
+      await fetchData(`https://flux-backend-wrmh.onrender.com/cart`, {
+        method: 'DELETE',
+      });
       loadCart();
     }
   }, []);
