@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   server: {
     proxy: {
-      '/cart': 'http://localhost:3456',
+      '/cart': 'https://flux-backend-wrmh.onrender.com/',
     },
   },
   plugins: [react()],
